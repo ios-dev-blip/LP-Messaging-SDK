@@ -1,0 +1,13 @@
+language: objective-c
+script:
+- echo "pass"
+before_deploy:
+- zip -r -9 LP-Messaging.framework.zip LPMessagingSDK.framework LPInfra.framework LPAMS.framework
+deploy:
+  provider: releases
+  file:
+  - LP-Messaging.framework.zip
+  skip_cleanup: true
+  on:
+    repo: ios-dev-blip/LP-Messaging-SDK
+    tags: true
