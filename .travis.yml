@@ -5,9 +5,12 @@ before_deploy:
 - zip -r -9 LP-Messaging.framework.zip LPMessagingSDK.framework LPInfra.framework LPAMS.framework
 deploy:
   provider: releases
+  api_key:
+    secure: 2e4c071d93e37e8bc0ea97a5a9a69d40af03f49b
   file:
   - LP-Messaging.framework.zip
   skip_cleanup: true
   on:
     repo: ios-dev-blip/LP-Messaging-SDK
     tags: true
+    
